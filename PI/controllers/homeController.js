@@ -1,6 +1,6 @@
 let homeController = {
 home : function (req, res) {
-    return res.render('home', { title: 'home' });
+    return res.render('home', { title: 'Nombre del sitio' });
     },
 
 };
