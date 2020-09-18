@@ -4,3 +4,14 @@
 main{
     margin-bottom: 40px;
 }
+
+body{
+    background-color: whitesmoke;
+    transition: 3.s ease all;   /* loop */
+}
+
+body.dark {
+    background-color: #111111;
+  box-shadow: 10px 10px 20px rgba(0,0,0,.16);
+  transition: .3s ease all;
+}

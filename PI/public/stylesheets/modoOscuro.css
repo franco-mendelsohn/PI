@@ -1,0 +1,48 @@
+.switch{
+    background-color: #343D5B;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer; /*Parezca un enlace (que el usuario pueda clickear) */
+    display: flex;
+    outline: none; /*Quitar un borde que google le agrega */
+    margin-left: 50px;
+    margin-top: 5px;
+  }
+
+  .switch span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  background: none;
+  color: #fff;
+  }
+  
+  .switch::after{  /*Movimiento del boton. */
+    content:""; /*Para que funcionen los demas estilos*/
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;  /* Desprendemos el boton de su posicion original */
+    background: #F1F1F1;
+    top: 0;  /*Que se quede en la parte de arriba, cordenada 0*/
+    left: 0;  /* lo mismo pero en la izquierda*/
+    right: unset; /*Posicion derecha no este setiada*/
+    border-radius: 100px;
+    transition: .3s ease all; /*tansicion de todas las propiedades*/
+    box-shadow: 0px 0px 2px 2px rgba(0,0,0,.2); /* sombra */
+  }
+  
+  .switch.active{  /* Cambie el boton a la clase active y cambien el color */
+    background: orange;
+    color: #000;
+  }
+  
+  .switch.active::after{ /* le quitamos el valor que antes teia y le cambiamos de lugar el boton */
+      right: 0;
+      left: unset;
+  }
+
+  
+  
