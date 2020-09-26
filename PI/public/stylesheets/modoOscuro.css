@@ -13,11 +13,15 @@
   .switch span {
   width: 30px;
   height: 30px;
-  line-height: 30px;
   display: block;
   background: none;
-  color: #fff;
+  color:  #fff;
+  padding-top: 6px;
+  font-size: 18px;
+
   }
+
+ 
   
   .switch::after{  /*Movimiento del boton. */
     content:""; /*Para que funcionen los demas estilos*/

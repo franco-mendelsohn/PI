@@ -25,7 +25,7 @@
             <div class="">
                 <nav class="" uk-navbar>
                     <div class="uk-navbar-left">
-                       <h2 class="logo"><a href="/">FalseBook</a></h2>
+                       <h2 class="logo"><a href="/">Acqua</a></h2>
                     </div>
                     <div class="uk-navbar-center">
                         <ul class="uk-flex uk-flex-between uk-flex-middle">
@@ -46,7 +46,6 @@
                             </li>
                         </ul>
                     </div>
-                   
                     <div>
                         <button class="switch" id="switch">
                             <span> <i class="fas fa-sun"></i> </span>
@@ -59,27 +58,32 @@
     </header>
     <script>
     const btnSwitch = document.querySelector('#switch'); 
+    const all = document.body;
+
     btnSwitch.addEventListener('click',() => {
-    document.body.classList.toggle('dark');
+    all.classList.toggle('dark'); 
     btnSwitch.classList.toggle('active');
 
-    if(document.body.classList.contains('dark')){
+   
+
+    if(all.classList.contains('dark')){
         localStorage.setItem('dark-mode', 'true');
     }
     else {
-        localStorage.setItem('dark-mode', 'false')
+        localStorage.setItem('dark-mode', 'false');
     }
-
 });
 
     //obtenemos el modo actual
     if(localStorage.getItem('dark-mode')==='true'){
-    document.body.classList.add('dark');
+    all.classList.add('dark');
     btnSwitch.classList.add('active');
 
+
     } else {
-    document.body.classList.remove('dark');
+    all.classList.remove('dark');
     btnSwitch.classList.remove('active');
+    
     }
 
     </script>
