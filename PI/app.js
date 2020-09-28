@@ -13,6 +13,7 @@ var loginRouter = require('./routes/login');
 var miPerfilRouter = require('./routes/miPerfil');
 var registracionRouter = require('./routes/registracion');
 var ResultadoBusquedaRouter = require('./routes/ResultadoBusqueda');
+var futuroHomeRouter = require('./routes/futuroHome')
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use('/login', loginRouter);
 app.use('/MiPerfil', miPerfilRouter);
 app.use('/registracion', registracionRouter);
 app.use('/ResultadoBusqueda', ResultadoBusquedaRouter);
+app.use('/futuroHome', futuroHomeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
