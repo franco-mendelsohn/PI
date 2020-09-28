@@ -1,5 +1,5 @@
 .info-usuario .foto-perfil{
-    border-radius: 50%;
+    border-radius: 100%;
 }
 
 .info-usuario .red-usuario{
@@ -19,4 +19,9 @@
 
 .uk-margin-remove{
     font-family: monospace;
+}
+
+
+.foto-perfil{
+    width: 10%;
 }

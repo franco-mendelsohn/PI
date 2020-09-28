@@ -1,0 +1,1 @@
+SELECT * FROM trabajoprogra2.usuarios;
