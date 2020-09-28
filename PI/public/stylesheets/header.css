@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 /* FONTS */
 
-
+#indice {
+    font-family: sans-serif;
+}
 header{
     height: 55px;
     padding-top: 10px;

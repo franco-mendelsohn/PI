@@ -10,8 +10,13 @@ footer ul{
 
 footer ul li{
     margin-top: 0;
+    
 }
 
 .uk-background-primary{
     background-color: #00ACC1 ;
+}
+
+#nombres li{
+    font-family: sans-serif;
 }

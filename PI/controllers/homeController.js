@@ -2,7 +2,7 @@
 
 let homeController = {
 home : function (req, res) {
-    return res.render('home', { title: 'Nombre del sitio'} , ) ;
+    return res.render('home', { title: 'Acqua'} , ) ;
     },
 
 };
