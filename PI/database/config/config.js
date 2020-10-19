@@ -1,9 +1,10 @@
-module. exports = {
+module.exports = {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "database_development",
+    "password": "root",  //LAUTI sino te anda capaz sea por esto, en tu caso seria null
+    "database": "finalPrograII",
     "host": "127.0.0.1",
+    "port": '8889',
     "dialect": "mysql"
   },
   "test": {
