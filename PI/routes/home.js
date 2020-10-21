@@ -7,5 +7,6 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', homeController.home);
 router.get('/futuroHome', homeController.futuro);
+router.get('/search', homeController.search)
 
 module.exports = router;

@@ -39,10 +39,13 @@
                     <div class="uk-navbar-right">
                         <ul class="uk-flex uk-flex-between uk-flex-middle">
                             <li>
-                                <form action="" class="uk-search uk-search-default">
+
+                                <form action="/search" class="uk-search uk-search-default" method="GET">
                                     <span uk-search-icon></span>
-                                    <input type="search" class="uk-search-input" placeholder="Buscar...">
+                                    <input type="search" name="search" class="uk-search-input" placeholder="Buscar..." value="">
+                                   
                                 </form>
+
                             </li>
                         </ul>
                     </div>
