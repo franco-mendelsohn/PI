@@ -1,3 +1,5 @@
+
+
 let infoController = {
     usuario : function (req, res) {
         return res.render('detalleUsuario', { title: 'Detalle Usuario' });

@@ -1,3 +1,9 @@
+const db = require('../database/models')
+const user = db.User;
+
+
+
+
 let homeController = {
 home : function (req, res) {
     return res.render('home', { title: 'Acqua'} , ) ;
@@ -8,9 +14,24 @@ futuro : function (req, res) {
 search: function (req, res) {
     let searchData = req.query;
     return res.send(searchData.search);
+},
 
-    //ahora para que busque esta palabra dentro de nuestra base de datos debemos implementar lo del video 7
-}
+prueba: function (req, res) {
+    user.findAll()
+    .then(function(resultados){
+        return res.send(resultados);
+
+      
+
+    })
+
+    .catch(function(error){
+        console.log(error);
+    })
+
+
+},
+
 };
 
 

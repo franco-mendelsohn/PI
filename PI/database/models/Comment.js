@@ -4,18 +4,18 @@ module.exports = function (sequelize, dataTypes) {
 
     let cols =  {
         id: {
+            primaryKey: true,
             autoIncrement: true,
-            primeryKey: true,
             type: dataTypes.INTEGER,
         },
 
         post_id: {
-            type: dataTypes.INTER,
+            type: dataTypes.INTEGER,
             allowNUll: false,
         },
 
         user_id: {
-            type: dataTypes.INTER,
+            type: dataTypes.INTEGER,
             allowNUll: false,
         },
 
@@ -31,12 +31,12 @@ module.exports = function (sequelize, dataTypes) {
         },
     }
     
-    const config = {
+    let config = {
         tableName: "comentarios",
-        timestamps: true,
+        timestamps: false,
         underscored: true,
       };
-
+      
     const Comment = sequelize.define(alias, cols, config);
 
     return Comment;

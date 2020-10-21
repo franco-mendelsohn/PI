@@ -5,12 +5,12 @@ module.exports = function (sequelize, dataTypes) {
     let cols =  {
         id: {
             autoIncrement: true,
-            primeryKey: true,
+            primaryKey: true,
             type: dataTypes.INTEGER,
         },
 
         user_id: {
-            type: dataTypes.INTER,
+           type: dataTypes.INTEGER,
             allowNUll: false,
         },
 
@@ -25,15 +25,15 @@ module.exports = function (sequelize, dataTypes) {
         },
 
         fecha_creacion: {
-            type: dataTypes.DATE,
+            type: dataTypes.DATE, 
             allowNUll: false,
             
         },
     }
     
-    const config = {
+    let config = {
         tableName: "posts",
-        timestamps: true,
+        timestamps: false,
         underscored: true,
       };
 
