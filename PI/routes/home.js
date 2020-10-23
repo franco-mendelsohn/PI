@@ -10,4 +10,5 @@ router.get('/futuroHome', homeController.futuro);
 router.get('/search', homeController.search);
 router.get('/prueba', homeController.prueba);
 
+
 module.exports = router;

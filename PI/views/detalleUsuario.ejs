@@ -1,5 +1,5 @@
 <head>
-    <title><%= title %></title> 
+    <title>Detalle Ususario</title> 
     <link rel="stylesheet" href="/stylesheet/detalleUsuario.css">
 </head>
 <header>
@@ -14,12 +14,12 @@
                 </div>
                 <div class="uk-width-2-3 uk-flex uk-flex-column uk-flex-around">
                     <div class="uk-flex uk-flex-middle">
-                        <h3 class="uk-margin-remove">Nombre de usuario</h3>
+                        <h3 class="uk-margin-remove"> <%= resultados.nombre + " " + resultados.apellido%>    </h3>
                         <button class="uk-button uk-button-small uk-button-primary uk-margin-left">Seguir</button>
                     </div>
                     <div class="lema">
                         <p>
-                        Basquet o morir.
+                            <%= resultados.lema%>
                         </p>
                     </div>
                     <div>

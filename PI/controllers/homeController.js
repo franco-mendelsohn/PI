@@ -19,17 +19,23 @@ search: function (req, res) {
 prueba: function (req, res) {
     user.findAll()
     .then(function(resultados){
-        return res.send(resultados);
-
-      
-
+        return res.render('resultadoBusqueda', {resultados});
     })
 
     .catch(function(error){
         console.log(error);
     })
+},
 
-
+especifico: function (req, res) {
+    let primaryKey = 3;
+    user.findByPk(primaryKey)
+    .then(function(resultados){
+        return res.render('resultadoBusquedaPost', {resultados});
+    })
+.catch(function(error){
+    console.log(error);
+})
 },
 
 };
