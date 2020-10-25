@@ -1,6 +1,7 @@
 // pruebas
 const db = require('../database/models')
 const user = db.User;
+const post = db.Post;
 const op = db.Sequelize.Op;   //para que funcione search (where)
 // pruebas
 
@@ -8,8 +9,23 @@ const op = db.Sequelize.Op;   //para que funcione search (where)
 
 let homeController = {
 home : function (req, res) {
-    return res.render('home', { title: 'Acqua'} , ) ;
+    post.findAll(
+        {    
+            order:[
+             ['fecha_creacion', "ASC"] ]
+        })
+        .then(function(resultados){
+           return res.render('home', {resultados});
+        })
+    
+        .catch(function(error){
+            console.log(error);
+        })
     },
+
+
+
+
 futuro : function (req, res) {
     return res.render('futuroHome', { title: 'Acqua'} , ) ;
     },
