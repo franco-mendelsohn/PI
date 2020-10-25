@@ -9,7 +9,7 @@ let infoController = {
             return res.render('resultadoBusqueda', { title: 'Rsultado Busqueda' });
         },
     especifico: function (req, res) {
-            let primaryKey = 5;
+            let primaryKey = 2;
             user.findByPk(primaryKey)
             .then(function(resultados){
                 return res.render('detalleUsuario', {resultados});
@@ -17,7 +17,11 @@ let infoController = {
     .catch(function(error){
             console.log(error);
         })
-        }
+    },
+    search: function(req, res){
+        let searchData
+    }
+
     };
 
      

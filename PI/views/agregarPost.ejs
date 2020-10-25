@@ -1,22 +1,24 @@
 <head>
     <link rel="stylesheet" href="/stylesheet/agregarPost.css">
-    <title><%= title %></title> 
+    <title>Postear</title> 
 </head>
 <header>
     <%-include('./partials/header')%>
  </header>
-<main>
+<main>   
+    <!-- HAY COSAS DE MAS QUE NO ESTAN EN LA TABLA POST DE SQL!!! (TITULO O DESCRIPCION) -->
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex">
-                <form action="">
+                <form action="/post/agregar/" method="POST">
                     <h2>Agregá un post!</h2>
-                    <label for="postpic">Imágen:</label><br>
-                    <input type="file" name="" id=""><br>
-                    <label for="titulo">Título del post:</label><br>
-                    <input type="text"><br>
-                    <label for="postname">descripcion</label><br>
-                        <input type="text"><br>
+                    <label for="postpic" >Imágen:</label><br>
+                    <input type="file" name="url_imagen" id=""><br>
+                    <!-- <label for="titulo">Título del post:</label><br>
+                    <input type="text" ><br>-->
+                    <label for="postname">descripcion</label><br> 
+                        <input type="text" name = "texto"><br>
+                <button type="submit">Postear</button>
                 </form>
 
             </div>
