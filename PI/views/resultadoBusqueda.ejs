@@ -11,12 +11,23 @@
            
          <div> <h1>Resultado de busqueda:</h1> </div> <br><br><br>
          <div>
+             <br>
            <ul>
-               <% for (let i = 0; i<resultados.length; i++) { %> 
-                <li>  
-                    <a href="/info/esp/<%=user[i].id %>"><%= resultados[i].nombre %></a>  
-                </li> 
-               <% } %>  
+               
+                  
+                    <%  if(resultados.length ==  0 ){ %>
+                        <h3>No se ha encontrado ningún resultado para: "<%= searchData %>"</h3>
+                        
+                     <%  } else if(resultados) {%>  
+                        <% for (let i = 0; i<resultados.length; i++) { %>
+                         <li>   
+                        <a href="/info/esp/<%=resultados[i].id %>"><%= resultados[i].nombre %></a>  
+                     <% } %> 
+                     <% } %> 
+                    </li> 
+                    
+                
+              
            </ul></div>
 
         </div>

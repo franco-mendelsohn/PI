@@ -12,8 +12,8 @@ let homeController = {
 home : function (req, res) {
     post.findAll(
         {    
-            include: [{association: 'user' }, {association: 'comments' }, ],
-            //  order:[ ['fecha_creacion', "ASC"] ]
+            include: [{association: 'user' }, {association: 'comments' , include: [{association: 'user'}] }, ],
+             order:[ ['fecha_creacion', "ASC"] ]
         })
         .then(function(resultados){
             // return res.send(resultados);
@@ -61,16 +61,17 @@ search: function (req, res) {      // buscador a traves del formulario de busque
     
     user.findAll(
         {
-            where: [
-                {nombre: {[op.like] : "%" + searchData + "%"} }
-            ]
+            where: {
+
+                          [op.or]:[
+                {nombre: {[op.like] : "%" + searchData + "%"}},
+                {email: {[op.like] : "%" + searchData + "%"}}
+                ]
+                
+            }
         })
-        .then(function(user){
-            if(user==null){
-               return res.send("No se encontro");
-            } else if(user) {
-               return res.render('resultadoBusqueda', {res});
-             }
+        .then(function(resultados){
+           return res.render('resultadoBusqueda', {resultados, searchData})
         })
 
             

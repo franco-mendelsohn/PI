@@ -7,7 +7,7 @@ let postController = {
         let primaryKey = req.params.id;
     
         post.findByPk(primaryKey,
-            { include: [{association: 'user' }, {association: 'comments' }, ],})
+            { include: [{association: 'user' }, {association: 'comments', include: [{association: 'user'}] }, ],})
         .then(function(resultados){
             return res.render('detallePost', {resultados});
         })
