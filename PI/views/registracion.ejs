@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="/stylesheet/registracion.css">
-    <title><%= title %></title> 
+    <title>Registracion</title> 
 </head>
 <header>
     <%-include('./partials/header')%>
@@ -8,31 +8,36 @@
 <main>
     <div class="uk-section uk-section-small">
         <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
-            <form action="">
-                
+            <form action="/ingreso/registro" method="POST">
+                <!-- EN TABLA ESTA DEMAS LA EDAD Y EL LEMA???? Y LA CONTRASENA -->
                 <h2>Formulario de registración</h2>
                 <label for="nombre">Nombre:</label><br>
                 <input type="text" name="nombre" id="nombre" placeholder="Lautaro" required="required"><br>
                 <label for="apellido">Apellido:</label><br>
                 <input type="text" name="apellido" id="apellido" placeholder="Ortiz" required="required"><br>
-                <label for="apodo">Apodo:</label><br>
-                <input type="text" name="apodo" id="apodo" placeholder="Lauti"><br>
+                <label for="email">Email:</label><br>
+                <input type="text" name="email" id="email" placeholder="lauti@gmail.com"><br>
+                <label for="username">Nombre de usuario:</label><br>
+                <label for="contraseña">Contraseña:</label><br>
+                <input type="password" name="contrasena" id="contrasena" placeholder="Pon una contraseña"><br>
                 <label for="username">Nombre de usuario:</label><br>
                 <input type="text" name="username" id="username" placeholder="ortizlautaro" required="required"><br>
-                <form>
+                <label for="apodo">Lema:</label><br>
+                <input type="text" name="lema" id="lema" placeholder="Pon un lema"><br>
             
-                    <label for="genero">Género:</label><br>
+            
+                     <!-- <label for="genero" name="genero" id= "genero">Género:</label><br>
                     <input type="radio" id="hombre" name="genero" value="hombre">
                     <label for="hombre">Hombre</label><br>
                     <input type="radio" id="mujer" name="genero" value="mujer">
                     <label for="mujer">Mujer</label><br>
                     <input type="radio" id="otro" name="genero" value="otro">
-                    <label for="otro">Otro</label><br>
+                    <label for="otro">Otro</label><br>  -->
 
-                    <label for="nacimiento">Fecha de nacimiento:</label><br>
-                    <input type="date" required="required"><br>
-                    <br><input type="submit">
-                  </form>
+                    <label for="cumpleanos">Fecha de nacimiento:</label><br>
+                    <input type="date" required="required" name="cumpleanos"><br>
+                    <br>
+                    <button type="submit">Registrarse</button>
             </form>
         </div>
     </div>

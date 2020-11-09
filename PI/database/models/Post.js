@@ -39,5 +39,23 @@ module.exports = function (sequelize, dataTypes) {
 
     const Post = sequelize.define(alias, cols, config);
 
+    Post.associate = function(models){ //relacionar con otra tabla para pedir esos datos hay que hacer la realacion en ambos modelos
+        Post.belongsTo(models.User,                   //RELACION DE UNO A MUCHOS explicamos toda la relacion(1. a quien pertenece, 
+         {                                                  //2 mas especifico, a donde va a encontrar SEQUELIZE esa realacion)
+            as: 'user',                                           //como vamos a llamar nosotros a esa realacion
+            foreignKey:'user_id',                                    //donde esta la clave foranea
+        } );
+        
+        Post.belongsToMany(models.Comment, {   //relacion de muchos a muchos
+            as: 'comments',
+            through: 'comentarios',                       //tabla que esta en medio de esta relacion
+            foreignKey: 'post_id',
+            otherKey: 'user_id',
+            timestamps: false,
+        });
+    }
+
+    
+
     return Post;
 }

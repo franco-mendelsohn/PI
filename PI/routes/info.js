@@ -4,8 +4,7 @@ var router = express.Router();
 
 /* GET home page. */
 
-router.get('/miPerfil', infoController.miPerfil)
-router.get('/resultadoBusqueda', infoController.busqueda)
-router.get('/especifico/:id', infoController.especifico);
+// router.get('/miPerfil', infoController.miPerfil)
+router.get('/esp/:id', infoController.esp);
 
 module.exports = router;
