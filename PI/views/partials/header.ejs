@@ -31,7 +31,10 @@
                         <ul class="uk-flex uk-flex-between uk-flex-middle">
                             <li><a href="/">Home</a></li>
                             <li><a href="http://localhost:3000/post/agregar">Postear</a></li>
-                            <li><a href="http://localhost:3000/info/miPerfil">Perfil</a></li>
+                            <% if (locals.user){%> 
+                               <li><a href="http://localhost:3000/info/miPerfil">Perfil</a></li>
+                               <% } %> 
+                            
                         </ul>
                                 
                     </div>
@@ -55,6 +58,11 @@
                             <span> <i class="fas fa-moon"></i> </span>
                         </button>
                     </div>
+                    <% if (locals.user){%> 
+                    <form action="/ingreso/logout" method="POST">
+                    <button type="submit">Logout</button>
+                    </form>
+                    <% } %>
                 </nav>
             </div>
         </section>

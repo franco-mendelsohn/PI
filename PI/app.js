@@ -30,7 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //sirve para hacer cosas en todas las vistas
 app.use(function(req, res, next){
-
+  if(req.session.user != undefined){       // locals nos deja disponible los datos en todas las vistas
+    res.locals.user = req.session.user    //si hay algo ne la session ponelo dentro de locals.user
+  }
   return next();
 })
 

@@ -7,4 +7,6 @@ router.get('/login', ingresoController.login);
 router.post('/login', ingresoController.check);
 router.get('/registro', ingresoController.index);
 router.post('/registro', ingresoController.store);
+router.post('/logout', ingresoController.logout);
+
 module.exports = router;
