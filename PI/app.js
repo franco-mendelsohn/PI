@@ -16,17 +16,23 @@ var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
+ 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(session(
-  {secret:'boca yo te amo', //esta frase es para que sesion pueda contruir una estructura de seguridad
+  {secret:'acqua', //esta frase es para que sesion pueda contruir una estructura de seguridad
   resave: false,
-  saveUninitialized: true,}          
+  saveUninitialized: true}          
 ));
 app.use(express.static(path.join(__dirname, 'public')));
+
+//sirve para hacer cosas en todas las vistas
+app.use(function(req, res, next){
+
+  return next();
+})
 
 app.use('/', homeRouter);
 app.use('/ingreso', ingresoRouter);

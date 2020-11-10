@@ -35,7 +35,7 @@
                             <div class="uk-width-1-4 uk-flex uk-flex-center">
                                 <img src="https://via.placeholder.com/35" alt="Foto de usuario">
                             </div>
-                            <h6 class="uk-margin-remove uk-width-2-4"><a href="/info/esp/<%=resultados.comments[x].user_id %>"><%= resultados.comments[x].user.nombre %></a> <%=resultados.comments[x].comentario %></h6>
+                            <h6 class="uk-margin-remove uk-width-2-4"><a href="/info/esp/<%=resultados.comments[x].user_id %>"><%= resultados.comments[x].user.username %></a> <%=resultados.comments[x].comentario %></h6>
                             <a href="/info/esp/<%=resultados.comments[x].user_id %>" uk-icon="icon:heart; ratio: 0.8" class="uk-width-1-4 uk-text-right icono-meGusta"></a>
                         </div>
                         <% } } %>

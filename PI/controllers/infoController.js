@@ -3,9 +3,13 @@ const user = db.User;
 const post = db.Post;
 
 let infoController = {
-    // miPerfil : function (req, res) {
-    //     return res.render('miPerfil', { title: 'Mi Perfil' });
-    //     },
+    miPerfil : function (req, res) {
+        user.findAll()
+        .then(function(resultados){
+            return res.render('miPerfil', {resultados});
+        })
+        
+        },
 
 
         esp : function (req, res) {      //configura detalle usuario segun el id

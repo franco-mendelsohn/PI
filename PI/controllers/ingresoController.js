@@ -14,10 +14,10 @@ let ingresoController = {
         .then(function(user){     // si coninciden las contarsenas queiro guardar la informacion de la sesion, para poder recuperar en otro controlador
             if (user == null){
                 return res.send('email incorrecto')                                 // si el email es incorrecto tira eso
-            } else if (bcrypt.compareSync(req.body.contraseña, user.contraseña) == false){ 
-                return res.send('contraseñincorrecta')                                  // si la contrasena es incorrecto tira eso
-            } else if (bcrypt.compareSync(req.body.contraseña, user.contraseña)){        //si concide lo que pone con lo que dice en la base, te doy un TRUE sino un FALSE. Primero lo que dice el cliente y despues compara con el hash de la base.
-                req.session.cliente = cliente;                                          //seesion se maneja con un modulo
+            } else if (bcrypt.compareSync(req.body.contrasena, user.contrasena) == false){ 
+                return res.send('contraseña incorrecta')                                  // si la contrasena es incorrecto tira eso
+            } else if (bcrypt.compareSync(req.body.contrasena, user.contrasena)){        //si concide lo que pone con lo que dice en la base, te doy un TRUE sino un FALSE. Primero lo que dice el cliente y despues compara con el hash de la base.
+                req.session.user = user                                  //seesion se maneja con un modulo
                 return res.redirect('/');
             } 
         })
@@ -44,13 +44,11 @@ let ingresoController = {
         cumpleanos: req.body.cumpleanos,
         lema: req.body.lema,
         
-       
-        
        }
        
        users.create(usuarios)
-       //.then
-       return res.redirect("/");
+       
+       return res.redirect("/ingreso/login");
 
 
         },
