@@ -6,8 +6,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', homeController.home);
-router.get('/futuroHome', homeController.futuro);
+router.get('/feed', homeController.feed);
 router.get('/all/', homeController.all);
 router.get('/search/', homeController.search);
+router.get('/searchh/', homeController.searchh);
 
 module.exports = router;

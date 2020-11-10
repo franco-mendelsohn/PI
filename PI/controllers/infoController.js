@@ -10,8 +10,12 @@ let infoController = {
         user.findAll(
             { include: [{association: 'post' }]})
         .then(function(resultados){
-    
+            if(req.session.user == undefined){
+                return res.redirect('/')
+            } else {
             return res.render('miPerfil', {resultados});
+            }
+            
         })
         .catch(function(error){
             console.log(error); 
@@ -27,8 +31,12 @@ let infoController = {
                { include: [{association: 'post' }, ],}
                 )
             .then(function(resultados){
-                // return res.send(resultados);
+                if(req.session.user == undefined){
+                    return res.redirect('/')
+                } else {
                 return res.render('detalleUsuario', {resultados});
+                }
+                
             })
             .catch(function(error){
                 console.log(error);

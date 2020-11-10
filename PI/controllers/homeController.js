@@ -9,15 +9,19 @@ const comment = db.Comment;
 
 
 let homeController = {
-home : function (req, res) {
+feed : function (req, res) {
     post.findAll(
         {    
             include: [{association: 'user' }, {association: 'comments' , include: [{association: 'user'}] }, ],
              order:[ ['fecha_creacion', "ASC"] ]
         })
         .then(function(resultados){
-            // return res.send(resultados);
-            return res.render('home', {resultados});
+            if(req.session.user == undefined){
+                return res.redirect('/')
+            } else {
+            return res.render('feed', {resultados});
+            }
+            
         })
     
         .catch(function(error){
@@ -26,8 +30,13 @@ home : function (req, res) {
     },
 
 
-futuro : function (req, res) {
-    return res.render('futuroHome', { title: 'Acqua'} ) 
+home : function (req, res) {
+    if(req.session.user != undefined){
+        return res.redirect('/feed')
+    } else {
+    return res.render('home');
+    }
+    
     },
 
 
@@ -43,7 +52,12 @@ all : function (req, res) {        //trae todo lo que esta en la base
         // ]
     })
     .then(function(resultados){
-       return res.render('resultadoBusqueda', {resultados});
+        if(req.session.user == undefined){
+            return res.redirect('/')
+        } else {
+        return res.render('resultadoBusqueda', {resultados});
+        }
+       
     })
 
     .catch(function(error){
@@ -55,6 +69,34 @@ all : function (req, res) {        //trae todo lo que esta en la base
     
 
 
+searchh: function (req, res) {      // buscador a traves del formulario de busqueda
+    let searchData = req.query.search;
+   
+    
+    comment.findAll(
+        {
+            where: [
+            { comentario : { [op.like] : "%#" +searchData + "%"}}
+            ]
+        })
+        .then(function(resultados){
+            if(req.session.user == undefined){
+                return res.redirect('/')
+            } else {
+            return res.render('resultadoBusquedaH', {resultados, searchData})
+            }
+           
+        })
+
+            
+        //    return res.render('resultadoBusqueda', {resultados});
+        // })
+    
+        .catch(function(error){
+            console.log(error);
+        })
+},
+
 search: function (req, res) {      // buscador a traves del formulario de busqueda
     let searchData = req.query.search;
    
@@ -65,13 +107,19 @@ search: function (req, res) {      // buscador a traves del formulario de busque
 
                           [op.or]:[
                 {nombre: {[op.like] : "%" + searchData + "%"}},
-                {email: {[op.like] : "%" + searchData + "%"}}
+                {email: {[op.like] : "%" + searchData + "%"}},
+                
                 ]
                 
             }
         })
         .then(function(resultados){
-           return res.render('resultadoBusqueda', {resultados, searchData})
+            if(req.session.user == undefined){
+                return res.redirect('/')
+            } else {
+            return res.render('resultadoBusqueda', {resultados, searchData})
+            }
+           
         })
 
             

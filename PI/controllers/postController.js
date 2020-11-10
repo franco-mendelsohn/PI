@@ -9,7 +9,12 @@ let postController = {
         post.findByPk(primaryKey,
             { include: [{association: 'user' }, {association: 'comments', include: [{association: 'user'}] }, ],})
         .then(function(resultados){
+            if(req.session.user == undefined){
+                return res.redirect('/')
+            } else {
             return res.render('detallePost', {resultados});
+            }
+            
         })
         .catch(function(error){
         console.log(error);
@@ -21,7 +26,12 @@ let postController = {
 
 
      agregar : function (req, res) {
+        if(req.session.user == undefined){
+            return res.redirect('/')
+        } else {
         return res.render('agregarPost');
+        }
+        
         },
     store: function (req, res) {
         
@@ -31,9 +41,8 @@ let postController = {
             texto: req.body.texto,
         }
 
-        post.create(posteo)      // permite guardar la inforamcion dentro de la base de datos
-                                    
-         return res.redirect('/');    //a donde redirecciona al usuario luego de postear
+        post.create(posteo)      // permite guardar la inforamcion dentro de la base de datos          
+         return res.redirect('/feed');    //a donde redirecciona al usuario luego de postear
     },
     
     };

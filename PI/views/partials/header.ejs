@@ -27,13 +27,19 @@
                     <div class="uk-navbar-left">
                        <h2 class="logo"><a href="/">Acqua</a></h2>
                     </div>
+                    
+                    <div class="bienvenido">
+                        <% if (locals.user){%> 
+                        <h3 >Bienvenido <%= locals.user.username %> !</h3>
+
+                    </div>
                     <div class="uk-navbar-center" id="indice">
                         <ul class="uk-flex uk-flex-between uk-flex-middle">
-                            <li><a href="/">Home</a></li>
+                            
+                            <li><a href="/feed">Home</a></li>
                             <li><a href="http://localhost:3000/post/agregar">Postear</a></li>
-                            <% if (locals.user){%> 
-                               <li><a href="http://localhost:3000/info/miPerfil">Perfil</a></li>
-                               <% } %> 
+                            <li><a href="http://localhost:3000/info/miPerfil">Perfil</a></li>
+                            
                             
                         </ul>
                                 
@@ -41,15 +47,22 @@
                     
                     <div class="uk-navbar-right">
                         <ul class="uk-flex uk-flex-between uk-flex-middle">
+                            
                             <li>
+                                <form action="/searchh/" class="uk-search uk-search-default" method="GET">  <!-- formulario de busqueda -->
+                                    <span uk-search-icon></span>
+                                    <input type="search" name="search" class="uk-search-input" placeholder="Buscar por #" value="">
+                                  
+                                </form>
 
                                 <form action="/search/" class="uk-search uk-search-default" method="GET">  <!-- formulario de busqueda -->
                                     <span uk-search-icon></span>
-                                    <input type="search" name="search" class="uk-search-input" placeholder="Buscar..." value="">
+                                    <input type="search" name="search" class="uk-search-input" placeholder="Buscar por usuarios" value="">
                                   
                                 </form>
 
                             </li>
+                        
                         </ul>
                     </div>
                     <div>
@@ -57,8 +70,9 @@
                             <span> <i class="fas fa-sun"></i> </span>
                             <span> <i class="fas fa-moon"></i> </span>
                         </button>
+                       
                     </div>
-                    <% if (locals.user){%> 
+                    
                     <form action="/ingreso/logout" method="POST">
                     <button type="submit">Logout</button>
                     </form>

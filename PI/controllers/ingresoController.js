@@ -6,7 +6,7 @@ const users = db.User;
 let ingresoController = {
     login : function (req, res) {
         if(req.session.user != undefined){
-            return res.redirect('/')
+            return res.redirect('/feed')
         } else {
         return res.render('login');
         }
@@ -25,7 +25,7 @@ let ingresoController = {
                 if(req.body.rememberme != undefined){                   //controlamos el checkbox recordame
                     res.cookie('userId', user.id, {maxAge: 1000 * 60 * 60 * 24 * 90} )           //creamos la cookie, como lo vamos a llamar, que va a tener y cuanto tiempo va a durar en milisegundos (3 meses)
                 }
-                return res.redirect('/');
+                return res.redirect('/feed');
             } 
         })
         .catch(e => console.log(e));
@@ -40,7 +40,7 @@ let ingresoController = {
         if(req.session.user != undefined){
             return res.redirect('/')
         } else {
-        return res.render('registracion');
+         return res.render('registracion');
         }
         },
 
@@ -53,8 +53,9 @@ let ingresoController = {
        
 
        .then(function(user){     
-         if (user != undefined){ 
-            return res.send('el email ya esta en uso')                                  
+         if (user != undefined){
+        let mensaje = "El email utilizado ya esta en uso, intente con otro."
+        return res.render('registracion', {mensaje})                                  
         } else {       
             let usuarios = {
         
@@ -71,13 +72,7 @@ let ingresoController = {
         } 
         return res.redirect('/ingreso/login');
     })
-    .catch(e => console.log(e));
-       
-       
-       
-
-
-        },
+ },
 
         logout: function(req, res){
             req.session.destroy();
