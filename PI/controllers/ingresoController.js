@@ -13,7 +13,7 @@ let ingresoController = {
     },
     check : function (req, res){   //encontrar el email. Chquear que la contrsena coincida.
         users.findOne({               //nos trae un elemento o nada.
-            where: [{ email: req.body.email}]     //NO PUSIMOS EMAIL EN LA TABLA!!!
+            where: [{ email: req.body.email}]     
          })      
         .then(function(user){     // si coninciden las contarsenas queiro guardar la informacion de la sesion, para poder recuperar en otro controlador
             if (user == null){
@@ -43,31 +43,46 @@ let ingresoController = {
         return res.render('registracion');
         }
         },
+
     store: function (req, res) {
-         
-       let usuarios = {
+
+        users.findOne({               
+            where: [{ email: req.body.email}] 
+        })
+
+       
+
+       .then(function(user){     
+         if (user != undefined){ 
+            return res.send('el email ya esta en uso')                                  
+        } else {       
+            let usuarios = {
         
         nombre: req.body.nombre,
-        contrasena: bcrypt.hashSync(req.body.contrasena, 10), //para encriptar los datos de la contrasena el 10 es para agregar 10 caracteres al alazar
+        contrasena: bcrypt.hashSync(req.body.contrasena, 10), 
         apellido: req.body.apellido,
         email: req.body.email,
         username: req.body.username,
         cumpleanos: req.body.cumpleanos,
         lema: req.body.lema,
-        
-       }
+        }
+        users.create(usuarios);
+            
+        } 
+        return res.redirect('/ingreso/login');
+    })
+    .catch(e => console.log(e));
        
-       users.create(usuarios)
        
-       return res.redirect("/ingreso/login");
+       
 
 
         },
 
         logout: function(req, res){
             req.session.destroy();
-            res.clearCokkier(userId);
-            
+            res.clearCookie('userId');
+    
             return res.redirect('/');
         },
     

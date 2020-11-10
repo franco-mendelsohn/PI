@@ -4,11 +4,19 @@ const post = db.Post;
 
 let infoController = {
     miPerfil : function (req, res) {
-        user.findAll()
+        
+
+
+        user.findAll(
+            { include: [{association: 'post' }]})
         .then(function(resultados){
+    
             return res.render('miPerfil', {resultados});
         })
-        
+        .catch(function(error){
+            console.log(error); 
+        })
+       
         },
 
 

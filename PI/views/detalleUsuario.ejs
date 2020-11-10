@@ -17,6 +17,7 @@
                         <h3 class="uk-margin-remove"> <%= resultados.nombre + " " + resultados.apellido%>    </h3>
                         <button class="uk-button uk-button-small uk-button-primary uk-margin-left">Seguir</button>
                     </div>
+                    <h4 class="uk-margin-remove"> <%= resultados.username%>  </h4>
                     <div class="lema">
                         <p>
                             <%= resultados.lema%>
@@ -34,7 +35,8 @@
            </section>
            <section class="muro uk-flex uk-flex-middle uk-flex-center">
                
-                <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid> <%for (let x = 0; x<resultados.post.length; x++) { %>
+                <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid> 
+                    <%for (let x = 0; x<resultados.post.length; x++) { %>
                     <div class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
                         <a href="/post/detalle/<%=resultados.post[x].id %>" class="link-detalle">
                             <img src=" <%= resultados.post[x].url_imagen%>" alt="foto de perfil" class="foto-perfil">

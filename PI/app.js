@@ -31,23 +31,26 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //sirve para hacer cosas en todas las vistas
 app.use(function(req, res, next){
-  if(req.session.user != undefined){       // locals nos deja disponible los datos en todas las vistas
+  if(req.session.user != undefined){     // locals nos deja disponible los datos en todas las vistas
     res.locals.user = req.session.user    //si hay algo ne la session ponelo dentro de locals.user
+  return next();
   }
   return next();
 })
 
 app.use(function(req, res, next){
   if(req.cookies.userId != undefined && req.session.user == undefined){ //si tenemos cookies pero no tenemos session
-   db.User.findByPk(req.cookies.userId)              //Buscamos al usuario en la db por id que esta dentro de la cookie y lo cargamos en la session
-  .then(function(user){
-  req.session.user = user;
+    db.User.findByPk(req.cookies.userId)             //Buscamos al usuario en la db por id que esta dentro de la cookie y lo cargamos en la session
+    .then(function(user){
+      req.session.user = user;
+      res.locals.user = user;
   return next()
 
 })
 .catch(c => console.log(e))
-}
+} else {
   return next();
+}
 })
 
 app.use('/', homeRouter);

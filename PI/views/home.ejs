@@ -19,7 +19,7 @@
                                 <img src="https://i.imgur.com/m6Zk8Fp.png\" alt="">
                             </div>
                             
-                            <h4><a href="/info/esp/<%=resultados[i].user_id %>"><%= resultados[i].user.nombre + " " + resultados[i].user.apellido%></a></h4>
+                            <h4><a href="/info/esp/<%=resultados[i].user_id %>"><%= resultados[i].user.username%></a></h4>
                             
                         </div>
                         <div class="post-body uk-flex uk-flex-center">
@@ -44,7 +44,7 @@
                                 for (let x = 0; x<resultados[i].comments.length; x++) { %>
                            
                                 <li>
-                                    <a href="/info/esp/<%=resultados[i].user_id %>"><%= resultados[i].comments[x].user.username%> </a>
+                                    <a href="/info/esp/<%=resultados[i].comments[x].user_id %>"><%= resultados[i].comments[x].user.username%> </a>
                                     <p><%=resultados[i].comments[x].comentario %></p>
                                 </li>
                                 <% } } %>
