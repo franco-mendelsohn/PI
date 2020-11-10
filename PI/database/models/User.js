@@ -50,6 +50,16 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.STRING,
             allowNUll: false,
         },
+
+        perfil:{
+            type: dataTypes.STRING,
+            allowNUll: false,
+        },
+
+        respuesta:{
+            type: dataTypes.STRING,
+            allowNUll: true,
+        },
         
     };
     

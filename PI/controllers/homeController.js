@@ -77,7 +77,13 @@ searchh: function (req, res) {      // buscador a traves del formulario de busqu
         {
             where: [
             { comentario : { [op.like] : "%#" +searchData + "%"}}
-            ]
+            ], 
+            limit : 20,
+            order:[
+                 ['fecha_creacion', "ASC"]    
+                ]
+
+
         })
         .then(function(resultados){
             if(req.session.user == undefined){
