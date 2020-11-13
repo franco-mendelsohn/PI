@@ -18,7 +18,7 @@ let ingresoController = {
                 let mensajeEmail = "El email ingresado es incorrecto, intente de nuevo."
                 return res.render('login', {mensajeEmail})                                // si el email es incorrecto tira eso
             } else if (bcrypt.compareSync(req.body.contrasena, user.contrasena) == false){
-                let mensajeContrasena = "La contraseña ingresado es incorrecto, intente de nuevo."
+                let mensajeContrasena = "La contraseña ingresada es incorrecta, intente de nuevo."
                 return res.render('login', {mensajeContrasena})                                  // si la contrasena es incorrecto tira eso
             } else if (bcrypt.compareSync(req.body.contrasena, user.contrasena)){        //si concide lo que pone con lo que dice en la base, te doy un TRUE sino un FALSE. Primero lo que dice el cliente y despues compara con el hash de la base.
                 req.session.user = user ;                                 //seesion se maneja con un modulo

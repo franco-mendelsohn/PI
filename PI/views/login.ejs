@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="/stylesheet/login.css">
-    <title>Login</title> 
+    <title>Login</title>
 </head>
 <header>
     <%-include('./partials/header')%>
@@ -10,25 +10,21 @@
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
                 <form action="/ingreso/login"  method="POST">
-
-
-                    <h2>Logeate!<h2>
+                    <h2>Logeate!<h2></h2>
+                    <% if(typeof mensajeEmail != 'undefined'){ %>
+                        <h5 style="color:red"><%= mensajeEmail  %> </h5>
+                    <% } %>
+                    <% if(typeof mensajeContrasena != 'undefined'){ %>
+                        <h5 style="color:red"><%= mensajeContrasena  %> </h5>
+                    <% } %>
                     <form action="">
                     <label for="login">Email:</label><br>
                     <input type="email" name="email" required="required"><br>
                     <label for="login">Contraseña:</label><br>
                     <input type="password" name="contrasena" required="required"><br>
                    Recordar <input type="checkbox" name="rememberme" >
-                    <br><input type="submit"><br>
-
-                    <label for="olvide">Olvidé mi contraseña</label><br>
-                    <input type="button" value="Reiniciar contraseña">
-
-
-
+                    <br><input type="submit">
                     </form>
-                
-                
                 </form>
             </div>
         </div>
