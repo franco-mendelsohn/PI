@@ -44,7 +44,7 @@ let infoController = {
             
 
         },
-        edit: function(req, res){
+        editarPerfil: function(req, res){
             return res.render ("perfilEdit")
         }
    
