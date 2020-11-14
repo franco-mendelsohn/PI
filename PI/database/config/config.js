@@ -1,10 +1,10 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": "root",  //LAUTI sino te anda capaz sea por esto, en tu caso seria null
+    "password": null,  //LAUTI sino te anda capaz sea por esto, en tu caso seria null
     "database": "trabajoprogra2",
     "host": "127.0.0.1",
-    "port": '8889',
+    "port": '3306',
     "dialect": "mysql"
   },
   "test": {
