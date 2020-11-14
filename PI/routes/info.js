@@ -6,5 +6,6 @@ var router = express.Router();
 
 router.get('/miPerfil/', infoController.miPerfil)
 router.get('/esp/:id', infoController.esp);
+router.get("/editarPerfil", infoController.editarPerfil);
 
 module.exports = router;
