@@ -63,12 +63,27 @@ let postController = {
         let idAeditar = req.params.id;
         post.findByPk(idAeditar)
         .then(function(post){
+            
             return res.render("postEdit", {post});
         })
         .catch(function(error){
             console.log(error);
         })
    
+    },
+    update: function(req,res){
+        let idAactualizar = req.params.id;
+        let postUpdate = req.body.texto
+        db.Post.update({
+            postUpdate
+        },
+        {
+            where: {
+                id: idAactualizar
+            }
+        })
+
+        return res.redirect("/feed")
     },
 
 }
