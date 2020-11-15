@@ -1,0 +1,35 @@
+<head>
+    <link rel="stylesheet" href="/stylesheet/agregarPost.css">
+    <title>Editar</title> 
+</head>
+<header>
+    <%-include('./partials/header')%>
+ </header>
+<main>   
+    <main>
+        <div class="uk-section uk-section-small">
+            <div class="uk-container uk-container-large uk-flex">
+                <form action="/info/editarPerfil" method="POST">
+
+                    <h2>Edita tu post!</h2>
+
+                    <label for="url_imagen" >Imágen:</label><br>
+                    <input type="file" name="url_imagen" id=""><br>
+
+                    <label for="texto">Texto</label><br> 
+                        <input type="text" name="texto" value="<%= post.texto %> "><br>
+                        
+                <button type="submit">Guardar</button>
+
+                </form>
+
+            </div>
+        </div>
+    </main>
+</main>
+ <footer>
+    <%-include('./partials/footer')%>
+</footer>
+
+
+

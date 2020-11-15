@@ -55,9 +55,19 @@ let postController = {
             }
         });
         return res.redirect("/feed")
+    },
+    edit: function(req,res){
+        let idAeditar = req.params.id;
+        post.findByPk(idAeditar)
+        .then(function(post){
+            return res.render("postEdit", {post});
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+   
+    },
 
-    }
-    };
-
+}
      
     module.exports= postController;
