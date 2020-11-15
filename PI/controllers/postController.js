@@ -46,7 +46,17 @@ let postController = {
         post.create(posteo)      // permite guardar la inforamcion dentro de la base de datos          
          return res.redirect('/feed');    //a donde redirecciona al usuario luego de postear
     },
-    
+    destroy: function(req,res){
+        let idAborrar = req.params.id;
+
+        db.Post.destroy({
+            where: {
+                id: idAborrar
+            }
+        });
+        return res.redirect("/feed")
+
+    }
     };
 
      

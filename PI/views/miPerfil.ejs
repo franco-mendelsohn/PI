@@ -1,6 +1,6 @@
 <head>
     <link rel="stylesheet" href="/stylesheet/miPerfil.css">
-    <title>Mi perfil</title> 
+    <title>Mi perfil</title>
 </head>
 <header>
     <%-include('./partials/header')%>
@@ -11,24 +11,19 @@
              <% if (locals.user){%>
             <section class="info-usuario uk-flex uk-flex-around uk-width-1-1">
                 <div class="uk-width-1-3 uk-flex uk-flex-center uk-flex-middle">
-                    <img src="" alt="foto de perfil" class="foto-perfil">
+                    <img src="<%= locals.user.perfil %>" alt="" class="foto-perfil">
                 </div>
                 <div class="uk-width-2-3 uk-flex uk-flex-column uk-flex-around">
                     <div class="uk-flex uk-flex-middle">
-                       
                         <h3 class="uk-margin-remove"> <%= locals.user.nombre + " " + locals.user.nombre%>  </h3>
                         <form action="/info/editarPerfil" method="GET">
-                        <button type="submit">Editar Perfil</button>
-                        </form>
-                     
-                        
+                            <button type="submit">Editar Perfil</button>
+                            </form>
+                        <a href="" uk-icon="icon:cog; ratio: 1.2" class="uk-margin-left"></a>
                     </div>
                     <h4 class="uk-margin-remove"> <%= locals.user.username%>  </h4>
                     <div class="lema">
-                        
                             <p> <%= locals.user.lema %></p>
-                        
-                        
                     </div>
                     <div>
                         <ul class="red-usuario uk-flex uk-flex-between uk-width-1-2" id="datos">
@@ -38,27 +33,23 @@
                         </ul>
                     </div>
                 </div>
-             
+              <% } %>
             </section>
-
             <section class="muro uk-flex uk-flex-middle uk-flex-center">
+                <% for( let i = 0; i < resultados.length; i++ ) { %>
                 <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
-                    
                     <div
                         class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                        <a href="/post/detalle/" class="link-detalle">
-                            <img src="" alt="" class="foto-perfil">
-                            <p class="uk-text-center"></p>
+                        <a href='/post/detalle/<%=resultados[i].id%>' class="link-detalle">
+                            <img src="<%=resultados[i].url_imagen%>" alt="foto de perfil" class="fotoproducto">
+                            <p class="uk-text-center"><%=resultados[i].texto%></p>
                         </a>
                     </div>
                </div>
-               <% } %>
+            <% } %>
             </section>
-           
         </div>
     </div>
-
-    
 </main>
  <footer>
     <%-include('./partials/footer')%>
