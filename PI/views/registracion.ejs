@@ -9,11 +9,10 @@
     <div class="uk-section uk-section-small">
         <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
             <form action="/ingreso/registro" method="POST">
-                
-                
                 <h2>Formulario de registración</h2>
-                
-                
+                <% if(typeof mensaje != 'undefined'){ %> 
+                    <h5 style="color:red"><%= mensaje  %> </h5>
+                <% } %>
                 <label for="nombre">Nombre:</label><br>
                 <input type="text" name="nombre" id="nombre" placeholder="Lautaro" required="required"><br>
 

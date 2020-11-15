@@ -7,12 +7,17 @@ let infoController = {
         
 
 
-        user.findAll(
-            { include: [{association: 'post' }]})
+        post.findAll({
+            where: [
+                {user_id: req.session.user.id}
+            ]
+        })
         .then(function(resultados){
+        
             if(req.session.user == undefined){
                 return res.redirect('/')
             } else {
+        
             return res.render('miPerfil', {resultados});
             }
             

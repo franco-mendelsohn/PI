@@ -1,3 +1,5 @@
+const { localsName } = require('ejs');
+const { locals } = require('../app');
 const db = require('../database/models');
 const post = db.Post;
 
@@ -39,9 +41,11 @@ let postController = {
         let posteo = {               
             url_imagen: req.body.url_imagen,    //nombre de las columnas en la base de datos
             texto: req.body.texto,
+            user_id: res.locals.user.id,
         }
 
-        post.create(posteo)      // permite guardar la inforamcion dentro de la base de datos          
+        post.create(posteo);
+       // permite guardar la inforamcion dentro de la base de datos          
          return res.redirect('/feed');    //a donde redirecciona al usuario luego de postear
     },
     

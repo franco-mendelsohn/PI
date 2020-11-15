@@ -11,7 +11,7 @@
              <% if (locals.user){%>
             <section class="info-usuario uk-flex uk-flex-around uk-width-1-1">
                 <div class="uk-width-1-3 uk-flex uk-flex-center uk-flex-middle">
-                    <img src="" alt="foto de perfil" class="foto-perfil">
+                    <img src="<%= locals.user.perfil %>" alt="" class="foto-perfil">
                 </div>
                 <div class="uk-width-2-3 uk-flex uk-flex-column uk-flex-around">
                     <div class="uk-flex uk-flex-middle">
@@ -36,21 +36,22 @@
                         </ul>
                     </div>
                 </div>
-             
+              <% } %>
             </section>
 
             <section class="muro uk-flex uk-flex-middle uk-flex-center">
+                <% for( let i = 0; i < resultados.length; i++ ) { %>
                 <div class="uk-grid uk-child-width-1-3 uk-width-1-1 uk-margin-remove" uk-grid>
                     
                     <div
                         class="uk-card uk-card-hover uk-card-body uk-flex uk-flex-column uk-flex-middle uk-flex-center ">
-                        <a href="/post/detalle/" class="link-detalle">
-                            <img src="" alt="" class="foto-perfil">
-                            <p class="uk-text-center"></p>
+                        <a href='/post/detalle/<%=resultados[i].id%>' class="link-detalle">
+                            <img src="<%=resultados[i].url_imagen%>" alt="foto de perfil" class="fotoproducto">
+                            <p class="uk-text-center"><%=resultados[i].texto%></p>
                         </a>
                     </div>
                </div>
-               <% } %>
+            <% } %> 
             </section>
            
         </div>
