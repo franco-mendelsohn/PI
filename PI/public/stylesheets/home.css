@@ -79,6 +79,7 @@ article.post div.post-comentarios ul li p{
     margin: 0 5px;
 }
 
-
-
+@media only screen and (max-width: 600px){
+    
+}
 

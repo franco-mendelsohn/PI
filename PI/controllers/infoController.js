@@ -49,6 +49,26 @@ let infoController = {
             
 
         },
+        editarPerfil: function(req, res){
+            let perfilAeditar = req.params.id;
+            let users = {
+                nombre: req.body.nombre,
+                apellido: req.body.apellido,
+                email: req.body.email,
+                username: req.body.username,
+                cumpleanos: req.body.cumpleanos,
+                lema: req.body.lema,
+                }
+
+            user.findByPk(perfilAeditar)
+            .then(function(user){
+                return res.render('perfilEdit', {user});
+            })
+            .catch(function(error){
+                console.log(error)
+            })
+            
+        }
    
     
 

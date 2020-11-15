@@ -42,6 +42,7 @@ let postController = {
             url_imagen: req.body.url_imagen,    //nombre de las columnas en la base de datos
             texto: req.body.texto,
             user_id: res.locals.user.id,
+
         }
 
         post.create(posteo);
