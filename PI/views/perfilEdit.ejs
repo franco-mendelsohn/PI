@@ -14,11 +14,13 @@
                     <label for="url_imagen" >Imágen:</label><br>
                     <input type="file" name="url_imagen" id=""><br>
                     <label for="texto">Nombre</label><br> 
-                        <input type="text" name="texto"><br>
+                        <input type="text" name="texto" value="<%= user.nombre %> "><br>
+                        <label for="texto">Apellido</label><br> 
+                        <input type="text" name="texto" value="<%= user.apellido %> "><br>
                         <label for="texto">Nombre de usuario</label><br> 
-                        <input type="text" name="texto"><br>
+                        <input type="text" name="texto" value="<%= user.username %> "><br>
                         <label for="texto">Lema</label><br> 
-                        <input type="text" name="texto"><br>
+                        <input type="text" name="texto" value="<%= user.lema %> "><br>
                         <label for="texto">Link</label><br> 
                         <input type="url" name="texto"><br>
                 <button type="submit">Guardar</button>
