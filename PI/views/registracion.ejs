@@ -10,7 +10,7 @@
         <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
             <form action="/ingreso/registro" method="POST">
                 <h2>Formulario de registración</h2>
-                <% if(typeof mensaje != 'undefined'){ %>
+                <% if(typeof mensaje != 'undefined'){ %> 
                     <h5 style="color:red"><%= mensaje  %> </h5>
                 <% } %>
                 <label for="nombre">Nombre:</label><br>
@@ -29,8 +29,8 @@
                     <input type="text" name="lema" id="lema" placeholder="Pon un lema"><br><br>
                 <label for="cumpleanos">Fecha de nacimiento:</label><br>
                 <input type="date" required="required" name="cumpleanos"><br><br>
-                <label for="username">Pregunta de seguridad: cual es tu color favorito?</label><br>
-                <input type="text" name="username" id="username" placeholder="verde" required="required"><br><br>
+                <label for="respuesta">Pregunta de seguridad: cual es tu color favorito?</label><br>
+                <input type="text" name="respuesta" id="username" placeholder="verde" required="required"><br><br>
                     <button type="submit">Registrarse</button>
             </form>
         </div>

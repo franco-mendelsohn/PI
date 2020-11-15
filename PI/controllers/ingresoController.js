@@ -54,9 +54,11 @@ let ingresoController = {
         username: req.body.username,
         cumpleanos: req.body.cumpleanos,
         lema: req.body.lema,
+        respuesta: req.body.respuesta,
+        perfil: req.body.perfil,
         }
         users.create(usuarios);
-        }
+    }
         return res.redirect('/ingreso/login');
     })
  },

@@ -76,7 +76,7 @@ searchh: function (req, res) {      // buscador a traves del formulario de busqu
     comment.findAll(
         {
             where: [
-            { comentario : { [op.like] : "%#" +searchData + "%"}}
+            { comentario : { [op.like] : "%" + "%#%" + searchData + "%"}}     
             ], 
             limit : 20,
             order:[

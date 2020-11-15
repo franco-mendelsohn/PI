@@ -44,6 +44,12 @@ app.use(function(req, res, next){
       return next();
     }
 })
+<<<<<<< HEAD
+
+
+
+=======
+>>>>>>> 01e58f5df285520d516b5179d7a186200d71373c
 app.use('/', homeRouter);
 app.use('/ingreso', ingresoRouter);
 app.use('/info', infoRouter);
