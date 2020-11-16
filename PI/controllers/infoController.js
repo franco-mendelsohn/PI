@@ -54,7 +54,7 @@ let infoController = {
             
         },
         updatePerfil: function(req,res){
-            let user ={
+            let useredit ={
                 Nombre: req.body.nombre,
                 Apellido: req.body.apellido,
                 Lema: req.body.lema,
@@ -62,7 +62,7 @@ let infoController = {
                 id: req.body.id
             }
                 
-              //let postUpdate = req.body.texto
+              //innecesario repetir el código pero lo dejo ahí mientras funcione
              db.User.update({
                  nombre: req.body.nombre,
                  apellido: req.body.apellido,
@@ -74,7 +74,7 @@ let infoController = {
                     {id: req.session.user.id}
                 ]
              })
-    
+            req.session.user=user;
             return res.redirect("/info/miPerfil")
             
         }, 
