@@ -54,7 +54,13 @@ let infoController = {
             
         },
         updatePerfil: function(req,res){
-            
+            let user ={
+                Nombre: req.body.nombre,
+                Apellido: req.body.apellido,
+                Lema: req.body.lema,
+                Username: req.body.username,
+                id: req.body.id
+            }
                 
               //let postUpdate = req.body.texto
              db.User.update({
@@ -65,7 +71,7 @@ let infoController = {
              },
              {
                  where: [
-                    {user_id: req.session.user.id}
+                    {id: req.session.user.id}
                 ]
              })
     

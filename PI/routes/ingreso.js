@@ -9,6 +9,7 @@ router.get('/registro', ingresoController.index);
 router.post('/registro', ingresoController.store);
 router.post('/logout', ingresoController.logout);
 router.get("/olvidepw", ingresoController.renderpw);
+// router.post("/olvidepw", ingresoController.renderpw);
 
 
 module.exports = router;

@@ -70,9 +70,10 @@ let ingresoController = {
         renderpw: function(req,res){
             return res.render("olvidePw")
         },
-        olvidepw: function(req,res){
-            
-        }
+       
+        
+           
+    
 
     };
     module.exports= ingresoController;
