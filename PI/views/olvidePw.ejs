@@ -1,0 +1,34 @@
+<head>
+    <link rel="stylesheet" href="/stylesheet/login.css">
+    <title>Olvidé mi contraseña</title>
+</head>
+<header>
+    <%-include('./partials/header')%>
+ </header>
+<main>
+    <main>
+        <div class="uk-section uk-section-small">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+
+                <form action="/ingreso/olvidepw" method="GET">
+
+                    <h2>Recuperá tu contraseña!</h2>
+                                   
+                    <label for="email">Email:</label><br>
+                    <input type="text" name="email" id="email" placeholder="lauti@gmail.com"><br>
+                  
+                    
+                    <label for="respuesta">Pregunta de seguridad: ¿cuál es tu color favorito?</label><br>
+                    <input type="text" name="respuesta" id="username" placeholder="verde" required="required"><br><br>
+    
+                        <button type="submit">Chequear datos</button>
+                        
+                </form>
+                
+            </div>
+        </div>
+    </main>
+</main>
+ <footer>
+    <%-include('./partials/footer')%>
+</footer>

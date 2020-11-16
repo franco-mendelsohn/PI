@@ -31,8 +31,9 @@ let postController = {
                                                     //   return res.send(req.body); //nos permite obtener la informacion que viene de un formulario
         let comenta = {               
             comentario: req.body.comentario,    //nombre de las columnas en la base de datos
-            user_id: req.session.user.id,
+            user_id: res.locals.user.id,
             post_id: req.body.idPost,
+            fecha_creacion: db.sequelize.literal("CURRENT_DATE"),
         }
         
         comment.create(comenta)
@@ -65,7 +66,7 @@ let postController = {
 
         post.create(posteo);
        // permite guardar la inforamcion dentro de la base de datos          
-         return res.redirect('/feed');    //a donde redirecciona al usuario luego de postear
+         return res.redirect('/info/miPerfil');    //a donde redirecciona al usuario luego de postear
     },
     destroy: function(req,res){
         let idAborrar = req.params.id;
@@ -75,10 +76,35 @@ let postController = {
                 id: idAborrar
             }
         });
-        return res.redirect("/feed")
+        return res.redirect("/info/miPerfil")
+    },
+    edit: function(req,res){
+        let idAeditar = req.params.id;
+        post.findByPk(idAeditar)
+        .then(function(post){
+            
+            return res.render("postEdit", {post});
+        })
+        .catch(function(error){
+            console.log(error);
+        })
+   
+    },
+    update: function(req,res){
+        
+        // let postUpdate = req.body.texto
+        db.Post.update({
+            texto: req.body.texto
+        },
+        {
+            where: {
+                id: req.params.id,
+            }
+        })
 
-    }
-    };
+        return res.redirect("/info/miPerfil")
+    },
 
+}
      
     module.exports= postController;

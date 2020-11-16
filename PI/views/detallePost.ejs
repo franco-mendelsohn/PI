@@ -47,11 +47,17 @@
                           <input type="hidden" name="idPost" value="<%= resultados.id  %>">
                           <button class="uk-button uk-button-primary uk-margin-small-top" type="submit">Comentar</button>
                         </form>
-
+                        
+                       <% if (locals.user.id == resultados.user_id) {%> 
+                        <form action="/post/edit/<%= resultados.id %>" method="GET">
+                        <button type="submit">Editar Post</button>
+                            </form>
                         <form action="/post/detalle/<%= resultados.id %>" method="POST">
                         <button type="submit">Borrar Post</button>
                             </form>
-
+                        <% }%>
+                        
+                        
                     </div> 
                        
                 </article>

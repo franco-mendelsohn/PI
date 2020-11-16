@@ -67,5 +67,13 @@ let ingresoController = {
             res.clearCookie('userId');
             return res.redirect('/');
         },
+        renderpw: function(req,res){
+            return res.render("olvidePw")
+        },
+       
+        
+           
+    
+
     };
     module.exports= ingresoController;
