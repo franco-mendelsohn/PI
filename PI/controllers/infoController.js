@@ -54,20 +54,18 @@ let infoController = {
             
         },
         updatePerfil: function(req,res){
-            let useredit ={
-                Nombre: req.body.nombre,
-                Apellido: req.body.apellido,
-                Lema: req.body.lema,
-                Username: req.body.username,
-                id: req.body.id
-            }
+            // let useredit ={
+            //     Nombre: req.body.nombre,
+            //     Apellido: req.body.apellido,
+            //     Lema: req.body.lema,
+            //     Username: req.body.username,
+            // }
                 
               //innecesario repetir el código pero lo dejo ahí mientras funcione
              db.User.update({
                  nombre: req.body.nombre,
                  apellido: req.body.apellido,
                  lema: req.body.lema,
-                 username: req.body.username,
 
              },
              {
