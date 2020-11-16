@@ -1,40 +1,32 @@
 <head>
-    <link rel="stylesheet" href="/stylesheet/registracion.css">
-    <title>Registracion</title>
+    <link rel="stylesheet" href="/stylesheet/login.css">
+    <title>Olvidé mi contraseña</title>
 </head>
 <header>
     <%-include('./partials/header')%>
  </header>
 <main>
-    <div class="uk-section uk-section-small">
-        <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
-            <form action="/ingreso/registro" method="POST">
-                <h2>Recuperá tu contraseña!</h2>
-                <% if(typeof mensaje != 'undefined'){ %> 
-                    <h5 style="color:red"><%= mensaje  %> </h5>
-                <% } %>
-                <label for="nombre">Nombre:</label><br>
-                <input type="text" name="nombre" id="nombre" placeholder="Lautaro" required="required"><br>
-                <label for="apellido">Apellido:</label><br>
-                <input type="text" name="apellido" id="apellido" placeholder="Ortiz" required="required"><br>
-                <label for="email">Email:</label><br>
-                <input type="text" name="email" id="email" placeholder="lauti@gmail.com"><br>
-                <label for="contraseña">Contraseña:</label><br>
-                <input type="password" name="contrasena" id="contrasena" placeholder="Pon una contraseña"><br>
-                <label for="username">Nombre de usuario:</label><br>
-                <input type="text" name="username" id="username" placeholder="ortizlautaro" required="required"><br><br>
-                <label for="perfil" >Foto de perfil(opcional):</label><br>
-                <input type="file" name="perfil" id=""><br><br>
-                <label for="apodo">Lema(opcional):</label><br>
-                    <input type="text" name="lema" id="lema" placeholder="Pon un lema"><br><br>
-                <label for="cumpleanos">Fecha de nacimiento:</label><br>
-                <input type="date" required="required" name="cumpleanos"><br><br>
-                <label for="respuesta">Pregunta de seguridad: cual es tu color favorito?</label><br>
-                <input type="text" name="respuesta" id="username" placeholder="verde" required="required"><br><br>
-                    <button type="submit">Registrarse</button>
-            </form>
+    <main>
+        <div class="uk-section uk-section-small">
+            <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+
+                <form action="/ingreso/olvidepw" method="GET">
+
+                    <h2>Recuperá tu contraseña!</h2>
+                                   
+                    <label for="email">Email:</label><br>
+                    <input type="text" name="email" id="email" placeholder="lauti@gmail.com"><br>
+                  
+                    <label for="respuesta">Pregunta de seguridad: ¿cuál es tu color favorito?</label><br>
+                    <input type="text" name="respuesta" id="username" placeholder="verde" required="required"><br><br>
+    
+                        <button type="submit">Chequear datos</button>
+                        
+                </form>
+                
+            </div>
         </div>
-    </div>
+    </main>
 </main>
  <footer>
     <%-include('./partials/footer')%>

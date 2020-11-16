@@ -8,5 +8,7 @@ router.post('/login', ingresoController.check);
 router.get('/registro', ingresoController.index);
 router.post('/registro', ingresoController.store);
 router.post('/logout', ingresoController.logout);
+router.get("/olvidepw", ingresoController.renderpw);
+
 
 module.exports = router;
