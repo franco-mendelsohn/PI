@@ -53,5 +53,23 @@ let infoController = {
             
             
         },
+        // update: function(req,res){
+        
+        //     // let postUpdate = req.body.texto
+        //     db.user.update({
+        //         nombre: req.body.nombre,
+        //         apellido: req.body.apellido,
+        //         username: req.body.username,
+        //         lema: req.body.lema,
+
+        //     },
+        //     {
+        //         where: {
+        //             id: req.params.id,
+        //         }
+        //     })
+    
+        //     return res.redirect("/feed")
+        // },
     }
     module.exports= infoController;
