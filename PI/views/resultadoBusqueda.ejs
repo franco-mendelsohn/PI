@@ -8,11 +8,12 @@
 <main>
     <div class="uk-section uk-section-small">
         <div class="uk-container uk-container-large uk-flex uk-flex-middle uk-flex-center">
+            
            
          <div> <h3>Resultado de busqueda:</h3> </div> 
         
           
-           <ul>
+           <ul class="conteiner">
                
                   
                     <%  if(resultados.length ==  0 ){ %>
@@ -20,7 +21,7 @@
                         
                      <%  } else if(resultados) {%>  
                         <% for (let i = 0; i<resultados.length; i++) { %>
-                         <li>   
+                         <li class="item">   
                         <a href="/info/esp/<%=resultados[i].id %>"><%= resultados[i].nombre %></a>  
                      <% } %> 
                      <% } %> 

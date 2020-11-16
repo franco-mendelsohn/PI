@@ -1,6 +1,7 @@
 const { localsName } = require('ejs');
 const { locals } = require('../app');
 const db = require('../database/models');
+const comment = db.Comment;
 const post = db.Post;
 
 
@@ -26,6 +27,23 @@ let postController = {
 
  },
 
+ hola: function (req, res) {
+                                                    //   return res.send(req.body); //nos permite obtener la informacion que viene de un formulario
+        let comenta = {               
+            comentario: req.body.comentario,    //nombre de las columnas en la base de datos
+            user_id: req.session.user.id,
+            post_id: req.body.idPost,
+        }
+        
+        comment.create(comenta)
+        
+        
+        return res.redirect('/post/detalle/' + req.body.idPost );
+      
+        
+       // permite guardar la inforamcion dentro de la base de datos          
+           //a donde redirecciona al usuario luego de postear
+    },
 
      agregar : function (req, res) {
         if(req.session.user == undefined){

@@ -3,12 +3,7 @@ const user = db.User;
 const post = db.Post;
 let infoController = {
     miPerfil : function (req, res) {
-<<<<<<< HEAD
-        
 
-
-=======
->>>>>>> 01e58f5df285520d516b5179d7a186200d71373c
         post.findAll({
             where: [
                 {user_id: req.session.user.id}

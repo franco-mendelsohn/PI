@@ -29,6 +29,7 @@
                         
                     </div> 
                     <% if (resultados.comments.length != 0) {
+                            
                         for (let x = 0; x<resultados.comments.length; x++) { %>
                     <div class="lista-comentarios" >
                         <div class="comentario uk-flex uk-flex-middle uk-margin-small-top">
@@ -38,11 +39,12 @@
                             <h6 class="uk-margin-remove uk-width-2-4"><a href="/info/esp/<%=resultados.comments[x].user_id %>"><%= resultados.comments[x].user.username %></a> <%=resultados.comments[x].comentario %></h6>
                             <a href="/info/esp/<%=resultados.comments[x].user_id %>" uk-icon="icon:heart; ratio: 0.8" class="uk-width-1-4 uk-text-right icono-meGusta"></a>
                         </div>
-                       <% } } %>
+                       <% }  } %>
                     </div>
                     <div class="agregar-comentario uk-flex uk-flex-middle">
-                        <form action="" class="uk-text-center">
-                          <input type="text" class="uk-input" placeholder="Agregar comentario"> 
+                        <form action="/post/detalle/" class="uk-text-center" method="POST">
+                          <input type="text" name="comentario" class="uk-input" placeholder="Agregar comentario"> 
+                          <input type="hidden" name="idPost" value="<%= resultados.id  %>">
                           <button class="uk-button uk-button-primary uk-margin-small-top" type="submit">Comentar</button>
                         </form>
 

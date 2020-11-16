@@ -3,7 +3,7 @@ const user = db.User;
 const post = db.Post;
 const op = db.Sequelize.Op;   //para que funcione search (where)
 const comment = db.Comment;
-// const bcrypt = require('bcryptjs');
+
 
 
 
@@ -42,28 +42,6 @@ home : function (req, res) {
 
 
 
-all : function (req, res) {        //trae todo lo que esta en la base
-    user.findAll(
-    {    
-        // limit : 1,                 //traeme solo
-        // offset : 1,               //saltea x
-        // order:[
-        //     ['nombre', "ASC"]    //ordenar los datos
-        // ]
-    })
-    .then(function(resultados){
-        if(req.session.user == undefined){
-            return res.redirect('/')
-        } else {
-        return res.render('resultadoBusqueda', {resultados});
-        }
-       
-    })
-
-    .catch(function(error){
-        console.log(error);
-    })
-},
 
 
     
@@ -138,25 +116,9 @@ search: function (req, res) {      // buscador a traves del formulario de busque
 },
 
 
-// .then( function(user){
-//     //El email no está en la base de datos
-//     if(user == null){
-//         return res.send("Email incorrecto");
-//     } else if (bcrypt.compareSync(req.body.password, user.password) == false ){
-//         //EL email existe pero la contraseña está mal
-//         return res.send("Contraseña equivocada")
-//     } else if (bcrypt.compareSync(req.body.password, user.password)){
-//         //Coinciden las contraseñas
-//         req.session.user = user;
-
 
 
 };
 
-
-
-
-
-// pruebas
  
 module.exports= homeController;
