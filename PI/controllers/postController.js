@@ -72,14 +72,14 @@ let postController = {
    
     },
     update: function(req,res){
-        let idAactualizar = req.params.id;
-        let postUpdate = req.body.texto
+        
+        // let postUpdate = req.body.texto
         db.Post.update({
-            postUpdate
+            texto: req.body.texto
         },
         {
             where: {
-                id: idAactualizar
+                id: req.params.id,
             }
         })
 
