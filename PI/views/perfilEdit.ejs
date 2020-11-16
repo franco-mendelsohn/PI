@@ -6,21 +6,20 @@
     <%-include('./partials/header')%>
  </header>
 <main>   
+    
     <main>
         <div class="uk-section uk-section-small">
             <div class="uk-container uk-container-large uk-flex">
                 <form action="/info/editarPerfil" method="POST">
                     <h2>Edita tu perfil!</h2>
                     <label for="url_imagen" >Imágen:</label><br>
-                    <input type="file" name="url_imagen" id=""><br>
+                    <input type="file" name="url_imagen"><br>
                     <label for="texto">Nombre</label><br> 
-                        <input type="text" name="texto" value="<%=  %> " ><br>
+                        <input type="text" name="nombre" value="<%=user.nombre%>"><br>
                         <label for="texto">Apellido</label><br> 
-                        <input type="text" name="texto"><br>
-                        <label for="texto">Nombre de usuario</label><br> 
-                        <input type="text" name="texto"><br>
+                        <input type="text" name="apellido"><br>
                         <label for="texto">Lema</label><br> 
-                        <input type="text" name="texto"><br>
+                        <input type="text" name="lema"><br>
                         
                 <button type="submit">Guardar</button>
                 </form>
