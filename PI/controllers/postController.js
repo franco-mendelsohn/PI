@@ -61,6 +61,7 @@ let postController = {
             url_imagen: req.body.url_imagen,    //nombre de las columnas en la base de datos
             texto: req.body.texto,
             user_id: res.locals.user.id,
+            fecha_creacion: db.sequelize.literal("CURRENT_DATE"),
 
         }
 
@@ -94,7 +95,8 @@ let postController = {
         
         // let postUpdate = req.body.texto
         db.Post.update({
-            texto: req.body.texto
+            texto: req.body.texto,
+            fecha_cambio: db.sequelize.literal("CURRENT_DATE"),
         },
         {
             where: {

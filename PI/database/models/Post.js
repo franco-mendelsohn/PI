@@ -29,6 +29,12 @@ module.exports = function (sequelize, dataTypes) {
             allowNUll: true,
             
         },
+
+        fecha_cambio: {
+            type: dataTypes.DATE, 
+            allowNUll: true,
+            
+        },
     }
     
     let config = {

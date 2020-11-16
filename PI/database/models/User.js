@@ -60,6 +60,12 @@ module.exports = function (sequelize, dataTypes) {
             type: dataTypes.STRING,
             allowNUll: true,
         },
+
+        fecha_cambio: {
+            type: dataTypes.DATE, 
+            allowNUll: true,
+            
+        },
         
     };
     

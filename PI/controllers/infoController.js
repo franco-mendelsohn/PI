@@ -65,6 +65,7 @@ let infoController = {
                  nombre: req.body.nombre,
                  apellido: req.body.apellido,
                  lema: req.body.lema,
+                 fecha_cambio: db.sequelize.literal("CURRENT_DATE"),
 
              },
              {

@@ -56,6 +56,7 @@ let ingresoController = {
         lema: req.body.lema,
         respuesta: req.body.respuesta,
         perfil: req.body.perfil,
+        fecha_registracion: db.sequelize.literal("CURRENT_DATE"),
         }
         users.create(usuarios);
     }
