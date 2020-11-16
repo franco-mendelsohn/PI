@@ -47,7 +47,7 @@ let postController = {
 
         post.create(posteo);
        // permite guardar la inforamcion dentro de la base de datos          
-         return res.redirect('/feed');    //a donde redirecciona al usuario luego de postear
+         return res.redirect('/info/miPerfil');    //a donde redirecciona al usuario luego de postear
     },
     destroy: function(req,res){
         let idAborrar = req.params.id;
@@ -57,7 +57,7 @@ let postController = {
                 id: idAborrar
             }
         });
-        return res.redirect("/feed")
+        return res.redirect("/info/miPerfil")
     },
     edit: function(req,res){
         let idAeditar = req.params.id;
@@ -83,7 +83,7 @@ let postController = {
             }
         })
 
-        return res.redirect("/feed")
+        return res.redirect("/info/miPerfil")
     },
 
 }

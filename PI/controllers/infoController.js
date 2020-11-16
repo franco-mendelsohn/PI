@@ -67,6 +67,7 @@ let infoController = {
                  nombre: req.body.nombre,
                  apellido: req.body.apellido,
                  lema: req.body.lema,
+                 username: req.body.username,
 
              },
              {
